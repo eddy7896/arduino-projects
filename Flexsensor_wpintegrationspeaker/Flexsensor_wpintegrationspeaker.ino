@@ -1,3 +1,6 @@
+//board used esp8266 
+//libraries to download UrlEncode
+
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 #include <WiFiClient.h>
@@ -11,8 +14,8 @@ String phoneNumber = "+91";//enter phone number
 String apiKey = "";//enter generated api key
 
 //flexsensor and buzzer pins
-const int flexPin = A0;
-const int buzzpin = 2;
+const int flexPin = A0;//flex sensor analog pin number
+const int buzzpin = 2;//buzzer pin
 
 int initflex = analogRead(flexPin);
 //Serial.println(initflex);

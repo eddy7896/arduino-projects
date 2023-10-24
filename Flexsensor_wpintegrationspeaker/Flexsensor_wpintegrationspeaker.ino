@@ -77,7 +77,7 @@ void loop() {
      sendMessage("your patient requires assistance");
      delay(300000);
   }
-    if(flexValue>(initflex-50))
+    if(flexValue>(initflex+50))
   {
      digitalWrite(buzzpin,HIGH);
      Serial.print("sensor: ");

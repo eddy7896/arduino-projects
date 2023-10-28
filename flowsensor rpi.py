@@ -1,5 +1,11 @@
 import RPi.GPIO as GPIO
 import time
+import requests
+
+# ThingSpeak configuration
+THINGSPEAK_API_KEY = 'YOUR_API_KEY'
+THINGSPEAK_CHANNEL_ID = 'YOUR_CHANNEL_ID'
+THINGSPEAK_URL = f'https://api.thingspeak.com/update?api_key={THINGSPEAK_API_KEY}&field1='
 
 # Define the GPIO pin to which the flow sensor is connected
 FLOW_SENSOR_PIN = 17  # Change this to the GPIO pin you are using
@@ -29,8 +35,12 @@ try:
         # Calculate total volume (liters)
         total_volume = flow_rate / 60
 
-        print "Flow Rate: %f L/min, Total Volume: %f L" % (flow_rate, total_volume)
-        time.sleep(1)  # Read data every second
+        print(f"Flow Rate: {flow_rate} L/min, Total Volume: {total_volume} L")
+
+        # Send total volume data to ThingSpeak
+        response = requests.get(THINGSPEAK_URL + str(total_volume))
+
+        time.sleep(60)  # Read data and update ThingSpeak every minute
 
 except KeyboardInterrupt:
     pass

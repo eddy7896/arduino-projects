@@ -10,12 +10,12 @@ const char* ssid = "realme 9 5G";// enter wifi name(case sensitive)
 const char* password = "12345678";//enter password
 
 //Generate api key by sending text message "I allow callmebot to send me messages" to https://wa.me/+34644992698
-String phoneNumber = "+91";//enter phone number 
+String phoneNumber = "";//enter phone number 
 String apiKey = "";//enter generated api key
 
 //flexsensor and buzzer pins
 const int flexPin = A0;//flex sensor analog pin number
-const int buzzpin = 2;//buzzer pin
+const int buzzpin = D5;//buzzer pin
 
 int initflex = analogRead(flexPin);
 //Serial.println(initflex);
